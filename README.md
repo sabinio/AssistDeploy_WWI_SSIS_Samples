@@ -2,10 +2,10 @@
 This repo provides a sample set of projects, themselves taken from the [sql-server-samples](https://github.com/Microsoft/sql-server-samples) repo. These projects are then used to provide an example of how to deploy an Integration Services project using [AssistDeploy](https://github.com/sabinio/AssistDeploy/).
 
 ## Pre-requisites
-Although nuget is used to install as much as possible, and BuildTools installer is included, therea re a few items of pre-requisites -  
+Although nuget is used to install as much as possible, and BuildTools installer is included, therea re a few items of pre-requisites
 
 
-### Non-opional
+### Non-optional
 SQL Server 2016 or 2017 Database Engine
 SQL Server/Mixed-mode authentication
 SQL Server 2016 or 2017 Integration Services
