@@ -34,4 +34,9 @@ $InvokeSSISBoD = Join-Path $PSScriptRoot "\SSISBoD\InvokeSSISBoD.ps1"
 ```
 ## AssistDeploy Stuff
 
-Consult the "AssistDeploy.ps1" file to see AssitDeploy executed.  
+Consult the "AssistDeploy.ps1" file to see AssistDeploy executed.  
+
+## Unknown Unknowns
+
+In the [ssis json](https://github.com/sabinio/AssistDeploy_WWI_SSIS_Samples/blob/master/WWI_SSIS/WWI_SSIS_ETL.json) file and in the [PublishSysAdminUser](https://github.com/sabinio/AssistDeploy_WWI_SSIS_Samples/blob/master/SSDTBoD/Functions/PublishSysAdminUser.ps1) file there are matching passwords used in the sample. These can be altered, however they must match.
+The [PublishSysAdminUser](https://github.com/sabinio/AssistDeploy_WWI_SSIS_Samples/blob/master/SSDTBoD/Functions/PublishSysAdminUser.ps1) file creates a sql login with sysasmin privileges on the SQL Server instance.
