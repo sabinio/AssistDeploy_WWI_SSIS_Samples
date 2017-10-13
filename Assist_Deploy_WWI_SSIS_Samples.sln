@@ -3,15 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "AssistDeploy_WWI_SSIS", "WWI_SSIS_Azure\AssistDeploy_WWI_SSIS.dtproj", "{782CCC24-771D-47D3-8BA3-75014AC74415}"
-	ProjectSection(ProjectDependencies) = postProject
-		{79C14C29-3A96-4B59-BC92-0290AF92F05B} = {79C14C29-3A96-4B59-BC92-0290AF92F05B}
-		{9E972C93-0716-4442-97FC-72C52C2C5AAA} = {9E972C93-0716-4442-97FC-72C52C2C5AAA}
-	EndProjectSection
-EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "WideWorldImportersDW", "WWI_DW_SSDT\wwi-dw-ssdt\WideWorldImportersDW.sqlproj", "{79C14C29-3A96-4B59-BC92-0290AF92F05B}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "WideWorldImporters", "WWI_SSDT\wwi-ssdt\WideWorldImporters.sqlproj", "{9E972C93-0716-4442-97FC-72C52C2C5AAA}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "WWI_SSIS", "WWI_SSIS\WWI_SSIS.dtproj", "{963B9B53-39D3-484B-9E59-8BBEFCAA5003}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,18 +16,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{782CCC24-771D-47D3-8BA3-75014AC74415}.Debug|Any CPU.ActiveCfg = Development
-		{782CCC24-771D-47D3-8BA3-75014AC74415}.Debug|Any CPU.Build.0 = Development
-		{782CCC24-771D-47D3-8BA3-75014AC74415}.Development|Any CPU.ActiveCfg = Development
-		{782CCC24-771D-47D3-8BA3-75014AC74415}.Development|Any CPU.Build.0 = Development
-		{782CCC24-771D-47D3-8BA3-75014AC74415}.Release|Any CPU.ActiveCfg = Development
-		{782CCC24-771D-47D3-8BA3-75014AC74415}.Release|Any CPU.Build.0 = Development
 		{79C14C29-3A96-4B59-BC92-0290AF92F05B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{79C14C29-3A96-4B59-BC92-0290AF92F05B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79C14C29-3A96-4B59-BC92-0290AF92F05B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{79C14C29-3A96-4B59-BC92-0290AF92F05B}.Development|Any CPU.ActiveCfg = Debug|Any CPU
-		{79C14C29-3A96-4B59-BC92-0290AF92F05B}.Development|Any CPU.Build.0 = Debug|Any CPU
-		{79C14C29-3A96-4B59-BC92-0290AF92F05B}.Development|Any CPU.Deploy.0 = Debug|Any CPU
 		{79C14C29-3A96-4B59-BC92-0290AF92F05B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79C14C29-3A96-4B59-BC92-0290AF92F05B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{79C14C29-3A96-4B59-BC92-0290AF92F05B}.Release|Any CPU.Deploy.0 = Release|Any CPU
@@ -39,11 +27,15 @@ Global
 		{9E972C93-0716-4442-97FC-72C52C2C5AAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E972C93-0716-4442-97FC-72C52C2C5AAA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{9E972C93-0716-4442-97FC-72C52C2C5AAA}.Development|Any CPU.ActiveCfg = Debug|Any CPU
-		{9E972C93-0716-4442-97FC-72C52C2C5AAA}.Development|Any CPU.Build.0 = Debug|Any CPU
-		{9E972C93-0716-4442-97FC-72C52C2C5AAA}.Development|Any CPU.Deploy.0 = Debug|Any CPU
 		{9E972C93-0716-4442-97FC-72C52C2C5AAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E972C93-0716-4442-97FC-72C52C2C5AAA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9E972C93-0716-4442-97FC-72C52C2C5AAA}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{963B9B53-39D3-484B-9E59-8BBEFCAA5003}.Debug|Any CPU.ActiveCfg = Development
+		{963B9B53-39D3-484B-9E59-8BBEFCAA5003}.Debug|Any CPU.Build.0 = Development
+		{963B9B53-39D3-484B-9E59-8BBEFCAA5003}.Development|Any CPU.ActiveCfg = Development
+		{963B9B53-39D3-484B-9E59-8BBEFCAA5003}.Development|Any CPU.Build.0 = Development
+		{963B9B53-39D3-484B-9E59-8BBEFCAA5003}.Release|Any CPU.ActiveCfg = Development
+		{963B9B53-39D3-484B-9E59-8BBEFCAA5003}.Release|Any CPU.Build.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

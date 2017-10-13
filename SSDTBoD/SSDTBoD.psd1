@@ -63,7 +63,8 @@
     'Invoke-MsBuildSSDT',
     'Publish-DatabaseDeployment',
     'Publish-SysAdminUser',
-    'Test-DatabaseEngineInstalled'
+    'Test-DatabaseEngineInstalled',
+    'Test-Net461Installed'
 
     )
     # Cmdlets to export from this module

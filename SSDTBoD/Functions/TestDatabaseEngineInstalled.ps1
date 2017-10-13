@@ -1,11 +1,11 @@
 Function Test-DatabaseEngineInstalled {
     Write-Verbose "Checking to see if SQL Sever 2016 or 2017 are installed locally." -Verbose
     [boolean] $sqlInstalled = $false
-    if (Test-Path "HKLM:\Software\Microsoft\Microsoft SQL Server\140") {
+    if ((Test-Path "HKLM:\Software\Microsoft\Microsoft SQL Server\140") -eq $true) {
         $sqlInstalled = $true
     }
     Else {
-        if (Test-Path "HKLM:\Software\Microsoft\Microsoft SQL Server\140") {
+        if ((Test-Path "HKLM:\Software\Microsoft\Microsoft SQL Server\140") -eq $true) {
             $sqlInstalled = $true
         }
     }
