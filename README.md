@@ -20,4 +20,18 @@ You won't be able to build the SSIS Project. The Ispac is included in the repo, 
 You also won't be able open the solution to make any changes.
 
 ## Getting Started
-Clone or download the repo. Locate the "Start.ps1" file. Edit the connection string so that it points to your instance. 
+Clone or download the repo. Locate the "Start.ps1" file. Edit the connection string so that it points to your instance.
+
+To skip the build or deploy of either the database or ssis project, exclude the switches (lines 4, 7). 
+```powershell
+#build and deploy databases
+$svrConnstring = "SERVER=.;Integrated Security=True;Database=master"
+$InvokeSSDTBoD = Join-Path $PSScriptRoot "\SSDTBoD\InvokeSSDTBoD.ps1"
+. $InvokeSSDTBoD -InstanceUnderUse $svrConnstring -Build -Deploy
+#build and deploy ssis packages
+$InvokeSSISBoD = Join-Path $PSScriptRoot "\SSISBoD\InvokeSSISBoD.ps1"
+. $InvokeSSISBoD -InstanceUnderUse $svrConnstring -Build -Deploy
+```
+## AssistDeploy Stuff
+
+Consult the "AssistDeploy.ps1" file to see AssitDeploy executed.  
