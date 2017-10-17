@@ -20,6 +20,8 @@ You won't be able to build the SSIS Project. The Ispac is included in the repo, 
 You also won't be able open the solution to make any changes.
 
 ## Getting Started
+
+In the [json file](https://github.com/sabinio/AssistDeploy_WWI_SSIS_Samples/blob/master/WWI_SSIS/WWI_SSIS_ETL.json) you need to update the server name to the server you are deploying to. 
 Clone or download the repo. Locate the "Start.ps1" file. Edit the connection string so that it points to your instance.
 
 To skip the build or deploy of either the database or ssis project, exclude the switches (lines 4, 7). 

@@ -1,7 +1,10 @@
 param (
     $InstanceUnderUse,
     [switch]$build,
-    [switch]$deploy
+    [switch]$deploy,
+    [string]$LocalModulePath,
+    [Switch]$rollback,
+    [Switch]$SimulateFailedDeployment
 )
 Function Invoke-SSISBoD {
     Import-Module  ".\SSISBoD" -Force
@@ -11,7 +14,7 @@ Function Invoke-SSISBoD {
     $WWI_SSIS_JSON = Join-Path $WWI_SSIS "WWI_SSIS_ETL.json"
     $WWI_SSIS_ISPAC = Join-Path $WWI_SSIS "bin\development\WWI_SSIS.ispac"
     if ($build) {
-        $devenv = 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.com'
+        $devenv = 'C:\Program Files (x86)\Microsoft Visual Studio\2017\*\Common7\IDE\devenv.com'
         [boolean]$what = Test-VisualStudio2017Installed -vspath $devenv 
         if ($what -eq $true) {
             Write-Host "As Visual Studio 2017 is installed, we can build dtproj file." -ForegroundColor DarkMagenta
@@ -19,15 +22,38 @@ Function Invoke-SSISBoD {
             Invoke-SsisBuild -vspath $devenv -ssis_proj $wwi_ssis_proj -ssis_sln $WWI_SSIS_SLN -config "Development"
         }
     }
-    else{
+    else {
         Write-Host "SSIS build skipped. Add build switch to run build." -ForegroundColor Black -BackgroundColor Red
     }
     if ($deploy) {
-        Install-AssistDeploy -WorkingFolder $PSScriptRoot -NugetPath $PSScriptRoot 
-        Import-Module "$PSScriptRoot\AssistDeploy" -Force
-        Invoke-AssistDeploy -json_file $WWI_SSIS_JSON -ispac_file $WWI_SSIS_ISPAC -connection_string $InstanceUnderUse
+        if (!$LocalModulePath) {
+            Write-Host "Installing AssistDeploy from Nuget" -ForegroundColor White -BackgroundColor DarkMagenta
+            Install-AssistDeploy -WorkingFolder $PSScriptRoot -NugetPath $PSScriptRoot 
+            Import-Module "$PSScriptRoot\AssistDeploy" -Force
+        }
+        else {
+            if (Test-Path $LocalModulePath) {
+                Write-Host "Installing AssistDeploy from supplied path $localModulePath" -ForegroundColor White -BackgroundColor DarkMagenta
+                Import-Module $LocalModulePath -Force
+            }
+            else {
+                Write-Error "Local Module of AssistDeploy not found at path supplied."
+                Throw
+            }
+        }
+        if (!$rollback) {
+            Invoke-AssistDeploy -json_file $WWI_SSIS_JSON -ispac_file $WWI_SSIS_ISPAC -connection_string $InstanceUnderUse
+        }
+        else {
+            if ($SimulateFailedDeployment) {
+                Invoke-AssistDeployRollback -json_file $WWI_SSIS_JSON -ispac_file $WWI_SSIS_ISPAC -connection_string $InstanceUnderUse -SimulateFailure
+            }
+            else {
+                Invoke-AssistDeployRollback -json_file $WWI_SSIS_JSON -ispac_file $WWI_SSIS_ISPAC -connection_string $InstanceUnderUse
+            }
+        }
     }
-    else{
+    else {
         Write-Host "SSIS deploy skipped. Add deploy switch to run build." -ForegroundColor Black -BackgroundColor Red
     }
 }

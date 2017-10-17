@@ -64,6 +64,7 @@
     ,'Install-AssistDeploy'
     ,'Invoke-SsisBuild'
     ,'Invoke-AssistDeploy'
+    ,'Invoke-AssistDeployRollback'
     )
     # Cmdlets to export from this module
     CmdletsToExport = '*'
