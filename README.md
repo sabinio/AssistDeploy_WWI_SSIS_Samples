@@ -1,8 +1,8 @@
 # AssistDeploy_WWI_SSIS_Samples
-This repo provides a sample set of projects, themselves taken from the [sql-server-samples](https://github.com/Microsoft/sql-server-samples) repo. These projects are then used to provide an example of how to deploy an Integration Services project using [AssistDeploy](https://github.com/sabinio/AssistDeploy/).
+This repo provides a sample set of projects, themselves taken from the [sql-server-samples](https://github.com/Microsoft/sql-server-samples) repo. These projects are then used to provide an example of how to deploy an Integration Services project using [AssistDeploy](https://github.com/sabinio/AssistDeploy/). Additionally a SQl Server Agent Job can be deployed to the server, based on [salt](https://github.com/sabinio/salt/)
 
 ## Pre-requisites
-Although nuget is used to install as much as possible, and BuildTools installer is included, therea re a few items of pre-requisites
+Although nuget is used to install as much as possible, and BuildTools installer is included, there are a few items of pre-requisites
 
 
 ### Non-optional

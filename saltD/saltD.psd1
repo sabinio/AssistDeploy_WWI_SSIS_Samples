@@ -61,6 +61,8 @@
     FunctionsToExport = @(
     'Install-Salt'
     ,'Invoke-Salt'
+    ,'Publish-Credential'
+    ,'Publish-Proxy'
     )
     # Cmdlets to export from this module
     CmdletsToExport = '*'

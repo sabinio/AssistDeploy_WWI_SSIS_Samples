@@ -6,6 +6,8 @@ Function Invoke-Salt {
         [String]$userName
     )
     $global:RunAsAccount = "$MachineOrDomainName\$userName"
+    Publish-Credential -sqlConnectionString $connection_string -RunAs $RunAsAccount
+    Publish-Proxy -sqlConnectionString $connection_string -RunAs $RunAsAccount
     Write-Host "Setting RunAsAccount to $RunAsAccount" -ForegroundColor DarkBlue -BackgroundColor White
     Start-Sleep -Seconds 3
     Add-Type -Path "C:\Program Files\Microsoft SQL Server\140\SDK\Assemblies\Microsoft.SqlServer.Smo.dll"
