@@ -5,3 +5,8 @@ $InvokeSSDTBoD = Join-Path $PSScriptRoot "\SSDTBoD\InvokeSSDTBoD.ps1"
 #build and deploy ssis packages
 $InvokeSSISBoD = Join-Path $PSScriptRoot "\SSISBoD\InvokeSSISBoD.ps1"
 . $InvokeSSISBoD -InstanceUnderUse $svrConnstring -Build -Deploy
+#Deploy SQL Agent Job
+$InvokesaltD = Join-Path $PSScriptRoot "\saltD\InvokesaltD.ps1"
+. $InvokesaltD -InstanceUnderUse $svrConnstring -MachineOrDomainName $env:computername -userName $env:UserName -SQLAgentServerName $env:computername -IntegrationServicesCatalogServer $env:computername -LocalModulePath "C:\Users\SQLTraining\source\repos\salt\salt"
+
+

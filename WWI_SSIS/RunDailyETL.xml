@@ -1,0 +1,302 @@
+<?xml version="1.0"?>
+<Job>
+    <Name>RunDailyETL</Name>
+    <Owner>everestpublic\SQLTraining</Owner>
+    <Description>No description available.</Description>
+    <Enabled>True</Enabled>
+    <Category>My Little Category</Category>
+    <TargetServers>
+        <TargetServer Include="SQLAgentServerName">
+            <Value>everestpublic</Value>
+        </TargetServer>
+    </TargetServers>
+    <Operator>
+        <Name />
+        <Email />
+        <NetSend />
+        <Page />
+    </Operator>
+    <Notification>
+        <SendEmail>Never</SendEmail>
+        <SendEventLog>Never</SendEventLog>
+        <SendPage>Never</SendPage>
+        <SendNetSend>Never</SendNetSend>
+    </Notification>
+    <Schedules>
+    <Schedule>
+				<Name>OneTime Schedule</Name>                 
+				<Enabled>False</Enabled>
+
+				<Frequency>
+					<Type>OneTime</Type>                               
+				</Frequency>
+				<DailyFrequency>
+					<StartHour>22</StartHour>
+					<StartMinute>30</StartMinute>
+					<StartSecond>30</StartSecond>
+				</DailyFrequency> 
+				<StartDate>07/14/2017</StartDate>              
+				<EndDate>07/14/2017</EndDate>
+			</Schedule>
+
+			<Schedule>
+				<Name>AutoStart Schedule</Name>                
+				<Enabled>False</Enabled>
+				<Frequency>
+					<Type>AutoStart</Type>                   
+				</Frequency>
+			</Schedule>
+
+			<Schedule>
+				<Name>OnIdle Schedule</Name>                
+				<Frequency>
+					<Type>OnIdle</Type>                      
+				</Frequency>
+			</Schedule>
+
+
+			<Schedule>
+				<Name>Daily Schedule run once</Name> 
+				<Frequency>
+					<Type>Daily</Type>                       
+					<Interval>1</Interval>                   
+				</Frequency>
+				<DailyFrequency>
+					<Every>Once</Every>                      
+					<StartHour>15</StartHour>
+					<StartMinute>00</StartMinute>
+					<StartSecond>00</StartSecond>          
+				</DailyFrequency>
+				<StartDate>07/13/2017</StartDate>              
+				<EndDate>07/13/2017</EndDate>                  
+			</Schedule>
+
+			<Schedule>
+				<Name>Daily Schedule run every 5 min</Name>                
+				<Frequency>
+					<Type>Daily</Type>                       
+					<Interval>1</Interval>         
+				</Frequency>
+				<DailyFrequency>
+					<Every>Minute</Every>                    
+					<Interval>5</Interval>                   
+					<StartHour>15</StartHour>
+					<StartMinute>00</StartMinute>
+					<StartSecond>00</StartSecond>             
+					<EndHour>23</EndHour>
+					<EndMinute>00</EndMinute>
+					<EndSecond>00</EndSecond>                
+				</DailyFrequency>
+				<StartDate>01/31/2018</StartDate>              
+				<EndDate>01/31/2018</EndDate>                  
+			</Schedule>
+
+			<Schedule>
+				<Name>Daily Schedule run every 5 hours</Name>                
+				<Frequency>
+					<Type>Daily</Type>                        
+					<Interval>1</Interval>         
+				</Frequency>
+				<DailyFrequency>
+					<Every>hour</Every>
+					<Interval>5</Interval> 
+					<StartHour>16</StartHour>
+					<StartMinute>00</StartMinute>
+					<StartSecond>00</StartSecond>             
+					<EndHour>23</EndHour>
+					<EndMinute>00</EndMinute>
+					<EndSecond>00</EndSecond>
+				</DailyFrequency>
+				<StartDate>07/18/2017</StartDate>              
+				<EndDate>07/18/2017</EndDate>                  
+			</Schedule>
+
+			<Schedule>
+				<Name>Daily Schedule run every 45 seconds</Name>                
+				<Frequency>
+					<Type>Daily</Type>
+					<Interval>1</Interval>
+				</Frequency>
+				<DailyFrequency>
+					<Every>Second</Every>
+					<Interval>45</Interval>
+					<StartHour>18</StartHour>
+					<StartMinute>15</StartMinute>
+					<StartSecond>59</StartSecond>             
+					<EndHour>23</EndHour>
+					<EndMinute>45</EndMinute>
+					<EndSecond>32</EndSecond>
+				</DailyFrequency>
+				<StartDate>07/13/2017</StartDate>              
+				<EndDate>07/13/2017</EndDate>                  
+			</Schedule>
+
+			<Schedule>
+				<Name>Mon Wed Fri every other week schedule</Name> 
+				<Frequency>
+					<Type>Weekly</Type>                      
+					<Recurrs>2</Recurrs>                     
+					<Interval>Monday</Interval>              
+					<Interval>Wednesday</Interval>
+					<Interval>Friday</Interval>
+				</Frequency>
+				<DailyFrequency>
+					<Every>Second</Every>
+					<Interval>25</Interval>
+					<StartHour>15</StartHour>
+					<StartMinute>00</StartMinute>
+					<StartSecond>00</StartSecond>             
+					<EndHour>22</EndHour>
+					<EndMinute>00</EndMinute>
+					<EndSecond>00</EndSecond>
+				</DailyFrequency>
+				<StartDate>07/13/2017</StartDate>              
+				<EndDate>07/13/2017</EndDate>                  
+			</Schedule>
+
+			<Schedule>
+				<Name>every other weekend schedule</Name> 
+				<Frequency>
+					<Type>Weekly</Type>                      
+					<Recurrs>2</Recurrs>                    
+					<Interval>WeekEnds</Interval> 
+				</Frequency>
+				<DailyFrequency>
+					<Every>Second</Every>
+					<Interval>10</Interval>
+					<StartHour>15</StartHour>
+					<StartMinute>00</StartMinute>
+					<StartSecond>00</StartSecond>             
+					<EndHour>22</EndHour>
+					<EndMinute>00</EndMinute>
+					<EndSecond>00</EndSecond>
+				</DailyFrequency>
+				<StartDate>07/13/2017</StartDate>              
+				<EndDate>07/13/2017</EndDate>                  
+			</Schedule>
+			<Schedule>
+				<Name>Day 15 every other month schedule</Name> 
+				<Frequency>
+					<Type>Monthly</Type>                     
+					<Recurrs>2</Recurrs>                     
+					<Interval>15</Interval>                 
+				</Frequency>
+				<DailyFrequency>
+					<Every>Second</Every>
+					<Interval>25</Interval>
+					<StartHour>15</StartHour>
+					<StartMinute>00</StartMinute>
+					<StartSecond>00</StartSecond>             
+					<EndHour>22</EndHour>
+					<EndMinute>00</EndMinute>
+					<EndSecond>00</EndSecond>
+				</DailyFrequency>
+				<StartDate>07/13/2017</StartDate>              
+				<EndDate>07/13/2017</EndDate>                  
+			</Schedule>
+        <Schedule Include="Mon_Wed_Fri">
+            <Name>Mon_Wed_Fri</Name>
+            <Enabled>False</Enabled>
+            <Frequency>
+                <Type>Weekly</Type>
+                <Interval>Monday</Interval>
+                <Interval>Wednesday</Interval>
+                <Interval>Friday</Interval>
+                <Recurrs>1</Recurrs>
+            </Frequency>
+            <DailyFrequency>
+                <Every>Once</Every>
+                <Interval>0</Interval>
+                <StartHour>00</StartHour>
+                <StartMinute>00</StartMinute>
+                <StartSecond>00</StartSecond>
+                <EndHour>23</EndHour>
+                <EndMinute>59</EndMinute>
+                <EndSecond>59</EndSecond>
+            </DailyFrequency>
+            <StartDate>2017-10-24</StartDate>
+            <EndDate>9999-12-31</EndDate>
+        </Schedule>
+        <Schedule Include="OneShot">
+            <Name>OneShot</Name>
+            <Enabled>False</Enabled>
+            <Frequency>
+                <Type>OneTime</Type>
+                <Recurrs>0</Recurrs>
+            </Frequency>
+            <DailyFrequency>
+                <Every>Unknown</Every>
+                <StartHour>00</StartHour>
+                <StartMinute>00</StartMinute>
+                <StartSecond>00</StartSecond>
+            </DailyFrequency>
+            <StartDate>2017-10-31</StartDate>
+            <EndDate>9999-12-31</EndDate>
+        </Schedule>
+        <Schedule Include="Run_Daily">
+            <Name>Run_Daily</Name>
+            <Enabled>False</Enabled>
+            <Frequency>
+                <Type>Daily</Type>
+                <Interval>1</Interval>
+                <Recurrs>0</Recurrs>
+            </Frequency>
+            <DailyFrequency>
+                <Every>Once</Every>
+                <Interval>0</Interval>
+                <StartHour>00</StartHour>
+                <StartMinute>00</StartMinute>
+                <StartSecond>00</StartSecond>
+                <EndHour>23</EndHour>
+                <EndMinute>59</EndMinute>
+                <EndSecond>59</EndSecond>
+            </DailyFrequency>
+            <StartDate>2017-10-24</StartDate>
+            <EndDate>9999-12-31</EndDate>
+        </Schedule>
+        <Schedule Include="Run_Weekdays">
+            <Name>Run_Weekdays</Name>
+            <Enabled>False</Enabled>
+            <Frequency>
+                <Type>Weekly</Type>
+                <Interval>Weekdays</Interval>
+                <Recurrs>1</Recurrs>
+            </Frequency>
+            <DailyFrequency>
+                <Every>Once</Every>
+                <Interval>0</Interval>
+                <StartHour>12</StartHour>
+                <StartMinute>00</StartMinute>
+                <StartSecond>00</StartSecond>
+                <EndHour>23</EndHour>
+                <EndMinute>59</EndMinute>
+                <EndSecond>59</EndSecond>
+            </DailyFrequency>
+            <StartDate>2017-10-24</StartDate>
+            <EndDate>9999-12-31</EndDate>
+        </Schedule>
+    </Schedules>
+    <Steps>
+        <Step>
+            <Name>Execute_DailyETLMain</Name>
+            <SubSystem>Ssis</SubSystem>
+            <RunAs Include="RunAsAccount">
+                <Name>everestpublic\SQLTraining</Name>
+            </RunAs>
+            <SsisServer Include="IntegrationServicesCatalogServer">
+                <Name>"everestpublic"</Name>
+            </SsisServer>
+            <SsisServerDetails Include="Execute_DailyETLMain">
+                <SsisServerCatalog>SSISDB</SsisServerCatalog>
+                <SsisServerCatalogFolder>WWI</SsisServerCatalogFolder>
+                <SsisServerCatalogProject>WWI_SSIS</SsisServerCatalogProject>
+                <SsisServerCatalogPackage>DailyETLMain.dtsx</SsisServerCatalogPackage>
+                <SsisServerCatalogEnvironment>EverestPublic</SsisServerCatalogEnvironment>
+            </SsisServerDetails>
+            <OnSuccessAction>QuitWithSuccess</OnSuccessAction>
+            <OnFailAction>QuitWithFailure</OnFailAction>
+            <RetryAttempts>0</RetryAttempts>
+            <RetryInterval>0</RetryInterval>
+        </Step>
+    </Steps>
+</Job>

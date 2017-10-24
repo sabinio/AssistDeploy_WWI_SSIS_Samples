@@ -256,3 +256,16 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+saltD/salt
+
+SSISBoD/AssistDeploy/
+
+WWI_DW_SSDT/wwi-dw-ssdt/bin/Debug/WideWorldImportersDW\.dacpac
+
+WWI_DW_SSDT/wwi-dw-ssdt/bin/Debug/wwi_dw_ssdt\.dll
+
+WWI_SSDT/wwi-ssdt/bin/Debug/WideWorldImporters\.dacpac
+
+WWI_SSDT/wwi-ssdt/bin/Debug/wwi_ssdt\.dll
+
+WWI_SSIS/bin/Development/WWI_SSIS\.ispac
