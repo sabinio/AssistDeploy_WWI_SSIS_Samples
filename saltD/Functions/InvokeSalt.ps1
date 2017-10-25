@@ -10,7 +10,6 @@ Function Invoke-Salt {
     Publish-Credential -sqlConnectionString $connection_string -RunAs $RunAsAccount -Password $Password
     Publish-Proxy -sqlConnectionString $connection_string -RunAs $RunAsAccount
     Write-Host "Setting RunAsAccount to $RunAsAccount" -ForegroundColor DarkBlue -BackgroundColor White
-    Start-Sleep -Seconds 3
     Add-Type -Path "C:\Program Files\Microsoft SQL Server\140\SDK\Assemblies\Microsoft.SqlServer.Smo.dll"
     $SqlConnection = Connect-SqlConnection -ConnectionString $connection_string
     [xml] $_xml = [xml] (Get-Content -Path $JobManifestXmlFile)
