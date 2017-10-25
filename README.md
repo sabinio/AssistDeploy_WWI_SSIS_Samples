@@ -1,4 +1,8 @@
 # AssistDeploy_WWI_SSIS_Samples
+
+Before we get into this, a disclaimer - 
+**Please don't run this software anywhere expect on a local machine. EG don't try this on a shared instance of SQL Server. Best thing to do is to get a VM up and running and play around on that**
+
 This repo provides a sample set of projects, themselves taken from the [sql-server-samples](https://github.com/Microsoft/sql-server-samples) repo. These projects are then used to provide an example of how to deploy an Integration Services project using [AssistDeploy](https://github.com/sabinio/AssistDeploy/). Additionally a SQL Server Agent Job can be deployed to the server, based on [salt](https://github.com/sabinio/salt/)
 
 ## Pre-requisites
@@ -6,14 +10,14 @@ Although nuget is used to install as much as possible, and BuildTools installer 
 
 
 ### Non-optional
-SQL Server 2016 or 2017 Database Engine
-SQL /Mixed-mode authentication
-SQL Server 2016 or 2017 Integration Services
-SSIS Catalog created.
+* SQL Server 2016 or 2017 Database Engine
+* SQL /Mixed-mode authentication
+* SQL Server 2016 or 2017 Integration Services
+* SSIS Catalog created.
 
 ### Optional
-Visual Studio 2017
-SSDT Daatabase and Integration Services 15.1 for Visual Studio 2017.
+* Visual Studio 2017
+* SSDT Daatabase and Integration Services 15.1 for Visual Studio 2017.
 
 #### What Happens If I Don't Have The Optional Pre-Requisites Installed?
 You won't be able to build the SSIS Project. The Ispac is included in the repo, so you can deploy using that.
