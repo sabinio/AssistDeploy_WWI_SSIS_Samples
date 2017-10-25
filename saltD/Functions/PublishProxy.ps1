@@ -33,22 +33,23 @@ Function Publish-Proxy {
         Write-Error $_.Exception
         Throw
     }
-    try {
-        $sqlExecute = "
+    if ($check -eq "NOTEXISTS") {
+        try {
+            $sqlExecute = "
         EXEC msdb.dbo.sp_grant_proxy_to_subsystem @proxy_name=@0, @subsystem_id=11
         "
-        $sqlCommand = New-Object System.Data.SqlClient.SqlCommand($sqlExecute, $sql_connection)
-        $sqlCommand.Parameters.AddWithValue("@0", $RunAsAccount) | Out-Null
-        $sqlCommand.ExecuteNonQuery() | Out-Null
-        Write-Verbose "permissions for $RunAsAccount updated!" -Verbose
+            $sqlCommand = New-Object System.Data.SqlClient.SqlCommand($sqlExecute, $sql_connection)
+            $sqlCommand.Parameters.AddWithValue("@0", $RunAsAccount) | Out-Null
+            $sqlCommand.ExecuteNonQuery() | Out-Null
+            Write-Verbose "permissions for $RunAsAccount updated!" -Verbose
         
+        }
+        catch {
+            Write-Error $_.Exception
+            Throw
+        }
     }
-    catch {
-        Write-Error $_.Exception
-        Throw
-    }
-    if ($null -eq $check)
-    {
+    if ($null -eq $check) {
         Write-Verbose "Login already created." -Verbose
     }
     $sql_connection.Dispose();

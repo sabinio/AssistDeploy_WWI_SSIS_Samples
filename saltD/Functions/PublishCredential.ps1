@@ -1,7 +1,8 @@
 Function Publish-Credential {
     param(
         $SqlConnectionString,
-        $RunAs
+        $RunAs,
+        $Password
     )
     $sql_connection = new-object System.Data.SqlClient.SqlConnection ($SqlConnectionString)
     Write-Verbose "Checking if credential $RunAs exists. If not will create..." -Verbose
@@ -21,7 +22,7 @@ Function Publish-Credential {
         if ($check -eq "NOTEXISTS") {
             Write-Warning "Creating Credential on instance."
             $sqlExecute = "
-            CREATE CREDENTIAL [$RunAs] WITH IDENTITY = '$RunAs', SECRET = N'MyLittlePassword123'
+            CREATE CREDENTIAL [$RunAs] WITH IDENTITY = '$RunAs', SECRET = N'$Password'
             "
             $sqlCommand = New-Object System.Data.SqlClient.SqlCommand($sqlExecute, $sql_connection)
             $sqlCommand.ExecuteNonQuery() | Out-Null

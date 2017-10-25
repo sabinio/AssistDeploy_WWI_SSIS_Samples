@@ -2,6 +2,7 @@ param (
     [String]$InstanceUnderUse,
     [String]$MachineOrDomainName,
     [String]$userName,
+    [String]$Password,
     [String]$SQLAgentServerName,
     [String]$IntegrationServicesCatalogServer,
     [string]$LocalModulePath
@@ -26,7 +27,7 @@ Function Invoke-saltD {
             Throw
         }
     }
-    Invoke-Salt -JobManifestXmlFile $WWI_SSIS_XML -connection_string $InstanceUnderUse -MachineOrDomainName $MachineOrDomainName -userName $userName
+    Invoke-Salt -JobManifestXmlFile $WWI_SSIS_XML -connection_string $InstanceUnderUse -MachineOrDomainName $MachineOrDomainName -userName $userName -password $Password
 }
 Invoke-saltD
 

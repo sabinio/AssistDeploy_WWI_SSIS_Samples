@@ -3,10 +3,11 @@ Function Invoke-Salt {
         $JobManifestXmlFile,
         $connection_string,
         [String]$MachineOrDomainName,
-        [String]$userName
+        [String]$userName,
+        [String]$password
     )
     $global:RunAsAccount = "$MachineOrDomainName\$userName"
-    Publish-Credential -sqlConnectionString $connection_string -RunAs $RunAsAccount
+    Publish-Credential -sqlConnectionString $connection_string -RunAs $RunAsAccount -Password $Password
     Publish-Proxy -sqlConnectionString $connection_string -RunAs $RunAsAccount
     Write-Host "Setting RunAsAccount to $RunAsAccount" -ForegroundColor DarkBlue -BackgroundColor White
     Start-Sleep -Seconds 3
