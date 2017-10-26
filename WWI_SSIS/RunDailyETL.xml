@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Job>
     <Name>RunDailyETL</Name>
-    <Owner>everestpublic\SQLTraining</Owner>
+    <Owner></Owner>
     <Description>No description available.</Description>
     <Enabled>True</Enabled>
     <Category>My Little Category</Category>
