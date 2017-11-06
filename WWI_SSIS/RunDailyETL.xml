@@ -4,7 +4,9 @@
     <Owner></Owner>
     <Description>No description available.</Description>
     <Enabled>True</Enabled>
-    <Category>My Little Category</Category>
+    <Category Include="ServerJobCategory">
+		<Value>My Little Category</Value>
+	</Category>
     <TargetServers>
         <TargetServer Include="SQLAgentServerName">
             <Value>everestpublic</Value>
