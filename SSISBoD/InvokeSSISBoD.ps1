@@ -26,7 +26,7 @@ Function Invoke-SSISBoD {
         Write-Host "SSIS build skipped. Add build switch to run build." -ForegroundColor Black -BackgroundColor Red
     }
     if ($deploy) {
-        [Reflection.Assembly]::LoadWithPartialName("Microsoft.SQLServer.Management.SMO.Server") | Out-Null
+        Add-Type -Path 'C:\Program Files\Microsoft SQL Server\140\SDK\Assemblies\Microsoft.SqlServer.Smo.dll'
         $SQLServer = New-Object Microsoft.SQLServer.Management.SMO.Server $InstanceUnderUse
         $configuration = $SQLServer.Configuration
         $CLRValue = $SQLServer.Configuration.IsSqlClrEnabled
