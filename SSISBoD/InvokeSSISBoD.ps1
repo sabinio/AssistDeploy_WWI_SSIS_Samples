@@ -26,6 +26,15 @@ Function Invoke-SSISBoD {
         Write-Host "SSIS build skipped. Add build switch to run build." -ForegroundColor Black -BackgroundColor Red
     }
     if ($deploy) {
+        $SQLServer = New-Object Microsoft.SQLServer.Management.SMO.Server $InstanceUnderUse
+        $configuration = $SQLServer.Configuration
+        $CLRValue = $SQLServer.Configuration.IsSqlClrEnabled
+        Write-Host $CLRValue.ConfigValue
+        If ($CLRValue.ConfigValue -eq 0) {
+            Write-Host "Enabling CLR....."
+            $CLRValue.ConfigValue = 1
+            $configuration.Alter()
+        }
         [Reflection.Assembly]::LoadWithPartialName("Microsoft.SqlServer.Management.IntegrationServices") | Out-Null
         $CatalogPwd = "Password12345"
         $SSISCatalog = "SSISDB"
