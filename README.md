@@ -1,3 +1,9 @@
+
+
+
+[<img src="https://sabinio.visualstudio.com/_apis/public/build/definitions/573f7b7f-2303-49f0-9b89-6e3117380331/107/badge"/>](https://sabinio.visualstudio.com/Sabin.IO/_apps/hub/ms.vss-ciworkflow.build-ci-hub?_a=edit-build-definition&id=107)
+
+
 # AssistDeploy_WWI_SSIS_Samples
 
 Before we get into this, a disclaimer - 
