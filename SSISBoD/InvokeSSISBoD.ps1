@@ -34,7 +34,6 @@ Function Invoke-SSISBoD {
         $integrationServices = New-Object "$ISNamespace.IntegrationServices" $sqlConnection
         $catalog = $integrationServices.Catalogs[$SSISCatalog]
         if (!$catalog) {
-            # Provision a new SSIS Catalog
             Write-Host "Creating SSIS Catalog ..."
             $catalog = New-Object "$ISNamespace.Catalog" ($integrationServices, $SSISCatalog, $CatalogPwd)
             $catalog.Create()
@@ -42,7 +41,6 @@ Function Invoke-SSISBoD {
         else {
             Write-Host "Catalog $($catalog.Name) exists."
         }
-        #end of create ssis catalog
         if (!$LocalModulePath) {
             Write-Host "Installing AssistDeploy from Nuget" -ForegroundColor White -BackgroundColor DarkMagenta
             Install-AssistDeploy -WorkingFolder $PSScriptRoot -NugetPath $PSScriptRoot 
@@ -75,5 +73,3 @@ Function Invoke-SSISBoD {
     }
 }
 Invoke-SSISBoD
-
-
