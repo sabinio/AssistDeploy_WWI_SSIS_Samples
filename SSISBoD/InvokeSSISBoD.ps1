@@ -4,7 +4,8 @@ param (
     [switch]$deploy,
     [string]$LocalModulePath,
     [Switch]$rollback,
-    [Switch]$SimulateFailedDeployment
+    [Switch]$SimulateFailedDeployment,
+    [Switch]$IncludePreRelease
 )
 Function Invoke-SSISBoD {
     Import-Module  ".\SSISBoD" -Force
@@ -54,7 +55,13 @@ Function Invoke-SSISBoD {
         }
         if (!$LocalModulePath) {
             Write-Host "Installing AssistDeploy from Nuget" -ForegroundColor White -BackgroundColor DarkMagenta
-            Install-AssistDeploy -WorkingFolder $PSScriptRoot -NugetPath $PSScriptRoot 
+            if ($IncludePreRelease)
+            {
+                Install-AssistDeploy -WorkingFolder $PSScriptRoot -NugetPath $PSScriptRoot -IncludePreRelease
+            }
+            else {
+                Install-AssistDeploy -WorkingFolder $PSScriptRoot -NugetPath $PSScriptRoot
+            }
             Import-Module "$PSScriptRoot\AssistDeploy" -Force
         }
         else {

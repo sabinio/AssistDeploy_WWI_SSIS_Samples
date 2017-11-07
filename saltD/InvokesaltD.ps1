@@ -5,7 +5,8 @@ param (
     [String]$Password,
     [String]$SQLAgentServerName,
     [String]$IntegrationServicesCatalogServer,
-    [string]$LocalModulePath
+    [string]$LocalModulePath,
+    [Switch]$IncludePreRelease
 
 )
 Function Invoke-saltD {
@@ -14,7 +15,12 @@ Function Invoke-saltD {
     $WWI_SSIS_XML = Join-Path $WWI_SSIS "RunDailyETL.xml"
     if (!$LocalModulePath) {
         Write-Host "Installing salt from Nuget" -ForegroundColor White -BackgroundColor DarkMagenta
-        Install-salt -WorkingFolder $PSScriptRoot -NugetPath $PSScriptRoot 
+        if ($IncludePreRelease) {
+            Install-salt -WorkingFolder $PSScriptRoot -NugetPath $PSScriptRoot -IncludePreRelease
+        }
+        else {
+            Install-salt -WorkingFolder $PSScriptRoot -NugetPath $PSScriptRoot
+        }
         Import-Module "$PSScriptRoot\salt" -Force
     }
     else {

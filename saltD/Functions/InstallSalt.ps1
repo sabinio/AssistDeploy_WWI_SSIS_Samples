@@ -5,6 +5,7 @@ function Install-Salt {
     param ( [string] $WorkingFolder,
         [String] $NugetPath
         , [string] $PackageVersion
+        , [Switch] $IncludePreRelease
     )
 
     if (-Not $WorkingFolder) {
@@ -19,10 +20,16 @@ function Install-Salt {
         Write-Error "Cannot find nuget at path $NugetPath\nuget.exe"
         exit 1
     }
-    $nugetInstallMsbuild = "&$NugetExe install salt -ExcludeVersion -OutputDirectory $WorkingFolder"
+    $nugetInstallMsbuild = "&$NugetExe install salt"
     if ($PackageVersion) {
-        $nugetInstallMsbuild += "-version '$PackageVersion'"
+        $nugetInstallMsbuild += " -version '$PackageVersion'"
     }
+    if ($IncludePreRelease)
+    {
+        $nugetInstallMsbuild += " -PreRelease"
+    }
+
+    $nugetInstallMsbuild +=" -ExcludeVersion -OutputDirectory $WorkingFolder"
     Write-Host $nugetInstallMsbuild -BackgroundColor White -ForegroundColor DarkGreen
     Invoke-Expression $nugetInstallMsbuild
 
