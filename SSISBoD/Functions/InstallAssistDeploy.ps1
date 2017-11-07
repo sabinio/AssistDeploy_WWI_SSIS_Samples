@@ -28,7 +28,7 @@ function Install-AssistDeploy {
     {
         $nugetInstallMsbuild += " -PreRelease"
     }
-    $nugetInstallMsbuild +=  " -ExcludeVersion -OutputDirectory $WorkingFolder"
+    $nugetInstallMsbuild +=  " -PackageSaveMode nuspec;nupkg -ExcludeVersion -OutputDirectory $WorkingFolder"
     Write-Host $nugetInstallMsbuild -BackgroundColor White -ForegroundColor DarkGreen
     Invoke-Expression $nugetInstallMsbuild
 
