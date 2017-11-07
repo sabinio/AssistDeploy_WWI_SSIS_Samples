@@ -8,9 +8,10 @@ Function Invoke-Salt {
     )
     $global:RunAsAccount = "$MachineOrDomainName\$userName"
     $global:ServerJobCategory = "My Other Little Category"
+    $global:SQLAgentServerName = $env:computername
     Publish-Credential -sqlConnectionString $connection_string -RunAs $RunAsAccount -Password $Password
     Publish-Proxy -sqlConnectionString $connection_string -RunAs $RunAsAccount
-    Write-Host "Setting RunAsAccount to $RunAsAccount" -ForegroundColor DarkBlue -BackgroundColor White
+    Write-Host "Setting RunAsAccount to $RunAsAccount, Server Job Category to $serverJobCategory and SQL Agent Server name to $SQLAgentServerName" -ForegroundColor DarkBlue -BackgroundColor White
     Add-Type -Path "C:\Program Files\Microsoft SQL Server\140\SDK\Assemblies\Microsoft.SqlServer.Smo.dll"
     $SqlConnection = Connect-SqlConnection -ConnectionString $connection_string
     [xml] $_xml = [xml] (Get-Content -Path $JobManifestXmlFile)
