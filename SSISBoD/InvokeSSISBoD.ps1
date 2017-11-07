@@ -26,6 +26,23 @@ Function Invoke-SSISBoD {
         Write-Host "SSIS build skipped. Add build switch to run build." -ForegroundColor Black -BackgroundColor Red
     }
     if ($deploy) {
+        [Reflection.Assembly]::LoadWithPartialName("Microsoft.SqlServer.Management.IntegrationServices") | Out-Null
+        $CatalogPwd = "Password12345"
+        $SSISCatalog = "SSISDB"
+        $ISNamespace = "Microsoft.SqlServer.Management.IntegrationServices"
+        $sqlConnection = New-Object System.Data.SqlClient.SqlConnection $InstanceUnderUse
+        $integrationServices = New-Object "$ISNamespace.IntegrationServices" $sqlConnection
+        $catalog = $integrationServices.Catalogs[$SSISCatalog]
+        if (!$catalog) {
+            # Provision a new SSIS Catalog
+            Write-Host "Creating SSIS Catalog ..."
+            $catalog = New-Object "$ISNamespace.Catalog" ($integrationServices, $SSISCatalog, $CatalogPwd)
+            $catalog.Create()
+        }
+        else {
+            Write-Host "Catalog $($catalog.Name) exists."
+        }
+        #end of create ssis catalog
         if (!$LocalModulePath) {
             Write-Host "Installing AssistDeploy from Nuget" -ForegroundColor White -BackgroundColor DarkMagenta
             Install-AssistDeploy -WorkingFolder $PSScriptRoot -NugetPath $PSScriptRoot 
