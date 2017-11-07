@@ -27,11 +27,12 @@ Function Invoke-SSISBoD {
     }
     if ($deploy) {
         Add-Type -Path 'C:\Program Files\Microsoft SQL Server\140\SDK\Assemblies\Microsoft.SqlServer.Smo.dll'
-        $SQLServer = New-Object Microsoft.SQLServer.Management.SMO.Server $InstanceUnderUse
+        $sqlConnection = New-Object System.Data.SqlClient.SqlConnection $InstanceUnderUse
+        $SQLServer = New-Object Microsoft.SQLServer.Management.SMO.Server $sqlConnection
         $configuration = $SQLServer.Configuration
         $CLRValue = $SQLServer.Configuration.IsSqlClrEnabled
         Write-Host $CLRValue.ConfigValue
-        If ($CLRValue.ConfigValue -eq 0) {
+        if ($CLRValue.ConfigValue -eq 0) {
             Write-Host "Enabling CLR....."
             $CLRValue.ConfigValue = 1
             $configuration.Alter()
