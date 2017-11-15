@@ -6,10 +6,6 @@ Function Invoke-Salt {
         [String]$userName,
         [String]$password
     )
-    $global:RunAsAccount = "$MachineOrDomainName\$userName"
-    $global:ServerJobCategory = "My Other Little Category"
-    $global:SQLAgentServerName = $env:computername
-    $global:IntegrationServicesCatalogServer = $env:computername
     Publish-Credential -sqlConnectionString $connection_string -RunAs $RunAsAccount -Password $Password
     Publish-Proxy -sqlConnectionString $connection_string -RunAs $RunAsAccount
     Write-Host "Setting RunAsAccount to $RunAsAccount, Server Job Category to $serverJobCategory and SQL Agent Server name to $SQLAgentServerName" -ForegroundColor DarkBlue -BackgroundColor White
