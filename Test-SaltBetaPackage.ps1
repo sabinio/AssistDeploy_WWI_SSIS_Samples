@@ -9,10 +9,10 @@ Function Test-SaltBetaPackage{
     $global:IntegrationServicesCatalogServer = "$env:computername"
 
 $svrConnstring = "SERVER=.;Integrated Security=True;Database=master"
-$InvokeSSDTBoD = Join-Path $PSScriptRoot "\SSDTBoD\InvokeSSDTBoD.ps1"
-. $InvokeSSDTBoD -InstanceUnderUse $svrConnstring -Build -Deploy
-$InvokeSSISBoD = Join-Path $PSScriptRoot "\SSISBoD\InvokeSSISBoD.ps1"
-. $InvokeSSISBoD -InstanceUnderUse $svrConnstring -Build -Deploy
+# $InvokeSSDTBoD = Join-Path $PSScriptRoot "\SSDTBoD\InvokeSSDTBoD.ps1"
+# . $InvokeSSDTBoD -InstanceUnderUse $svrConnstring -Build -Deploy
+# $InvokeSSISBoD = Join-Path $PSScriptRoot "\SSISBoD\InvokeSSISBoD.ps1"
+# . $InvokeSSISBoD -InstanceUnderUse $svrConnstring -Build -Deploy
 #Deploy SQL Agent Job
 #$env:USERDOMAIN
 #$env:computername
