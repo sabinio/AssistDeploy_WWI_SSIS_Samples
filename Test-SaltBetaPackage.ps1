@@ -20,4 +20,6 @@ $InvokesaltD = Join-Path $PSScriptRoot "\saltD\InvokesaltD.ps1"
 . $InvokesaltD -InstanceUnderUse $svrConnstring -MachineOrDomainName $env:computername -userName $env:UserName -Password $pword -SQLAgentServerName $env:computername -IntegrationServicesCatalogServer $env:computername -IncludePreRelease
 }
 
+Write-Host "Sleeping for 1 minute so that package can be indexed on NuGet."
+Start-Sleep -Seconds 60
 Test-SaltBetaPackage -pword $env:BuildPassword
