@@ -9,6 +9,7 @@ param (
 )
 Function Invoke-SSISBoD {
     Import-Module  ".\SSISBoD" -Force
+    Install-AssistDeploy -WorkingFolder $PSScriptRoot -NugetPath $PSScriptRoot -IncludePreRelease
     $WWI_SSIS = Join-Path (Split-Path -Path $PSScriptRoot -Parent) "\WWI_SSIS"
     $WWI_SSIS_SLN = Join-Path (Split-Path -Path $PSScriptRoot -Parent) "Assist_Deploy_WWI_SSIS_Samples.sln"
     $WWI_SSIS_PROJ = Join-Path $WWI_SSIS "WWI_SSIS.dtproj"
