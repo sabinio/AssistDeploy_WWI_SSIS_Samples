@@ -21,5 +21,4 @@ Function Test-AssistDeployBetaPackage{
 }
 Write-Host "Sleeping for 1 minute so that package can be indexed on NuGet."
 #Start-Sleep -Seconds 60
-$BuildPassword = "Yanmega#0469"
 Test-AssistDeployBetaPackage -pword $env:BuildPassword

@@ -63,6 +63,8 @@ Function Invoke-SSISBoD {
             else {
                 Install-AssistDeploy -WorkingFolder $PSScriptRoot -NugetPath $PSScriptRoot
             }
+            $signatureFile = Join-Path $PSScriptRoot .signature.p7s
+            Remove-Item  $signatureFile -Force
             Import-Module "$PSScriptRoot\AssistDeploy" -Force
         }
         else {
