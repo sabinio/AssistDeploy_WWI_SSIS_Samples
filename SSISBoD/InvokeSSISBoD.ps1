@@ -29,7 +29,7 @@ Function Invoke-SSISBoD {
     }
     if ($deploy) {
         Install-Smo -WorkingFolder $PSScriptRoot -NugetPath $PSScriptRoot
-        $smoDll = Join-Path $WorkingFolder Microsoft.SqlServer.SqlManagementObjects\lib\net45\Microsoft.SqlServer.Smo.dll
+        $smoDll = Join-Path $PSScriptRoot Microsoft.SqlServer.SqlManagementObjects\lib\net45\Microsoft.SqlServer.Smo.dll
         Add-Type -Path $smoDll
         $sqlConnection = New-Object System.Data.SqlClient.SqlConnection $InstanceUnderUse
         $SQLServer = New-Object Microsoft.SQLServer.Management.SMO.Server $sqlConnection
