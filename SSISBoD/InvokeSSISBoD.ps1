@@ -28,7 +28,8 @@ Function Invoke-SSISBoD {
         Write-Host "SSIS build skipped. Add build switch to run build." -ForegroundColor Black -BackgroundColor Red
     }
     if ($deploy) {
-        Add-Type -Path 'C:\Program Files\Microsoft SQL Server\130\SDK\Assemblies\Microsoft.SqlServer.Smo.dll'
+        $smoDll = Install-Smo -WorkingFolder $PSScriptRoot -NugetPath $PSScriptRoot
+        Add-Type -Path $smoDll
         $sqlConnection = New-Object System.Data.SqlClient.SqlConnection $InstanceUnderUse
         $SQLServer = New-Object Microsoft.SQLServer.Management.SMO.Server $sqlConnection
         $configuration = $SQLServer.Configuration

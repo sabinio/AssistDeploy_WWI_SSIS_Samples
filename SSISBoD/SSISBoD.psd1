@@ -62,6 +62,7 @@
     FunctionsToExport = @(
     'Test-VisualStudio2017Installed'
     ,'Install-AssistDeploy'
+    ,'Install-Smo'
     ,'Invoke-SsisBuild'
     ,'Invoke-AssistDeploy'
     ,'Invoke-AssistDeployRollback'
