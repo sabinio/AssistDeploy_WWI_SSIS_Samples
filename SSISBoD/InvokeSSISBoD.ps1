@@ -46,16 +46,16 @@ Function Invoke-SSISBoD {
         $SSISCatalog = "SSISDB"
         $ISNamespace = "Microsoft.SqlServer.Management.IntegrationServices"
         $sqlConnection = New-Object System.Data.SqlClient.SqlConnection $InstanceUnderUse
-        $integrationServices = New-Object "$ISNamespace.IntegrationServices" $sqlConnection
-        $catalog = $integrationServices.Catalogs[$SSISCatalog]
-        if (!$catalog) {
-            Write-Host "Creating SSIS Catalog ..."
-            $catalog = New-Object "$ISNamespace.Catalog" ($integrationServices, $SSISCatalog, $CatalogPwd)
-            $catalog.Create()
-        }
-        else {
-            Write-Host "Catalog $($catalog.Name) exists."
-        }
+        # $integrationServices = New-Object "$ISNamespace.IntegrationServices" $sqlConnection
+        # $catalog = $integrationServices.Catalogs[$SSISCatalog]
+        # if (!$catalog) {
+        #     Write-Host "Creating SSIS Catalog ..."
+        #     $catalog = New-Object "$ISNamespace.Catalog" ($integrationServices, $SSISCatalog, $CatalogPwd)
+        #     $catalog.Create()
+        # }
+        # else {
+        #     Write-Host "Catalog $($catalog.Name) exists."
+        # }
         if (!$LocalModulePath) {
             Write-Host "Installing AssistDeploy from Nuget" -ForegroundColor White -BackgroundColor DarkMagenta
             if ($IncludePreRelease)
