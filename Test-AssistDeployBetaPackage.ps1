@@ -12,7 +12,7 @@ Function Test-AssistDeployBetaPackage{
 # # $InvokeSSDTBoD = Join-Path $PSScriptRoot "\SSDTBoD\InvokeSSDTBoD.ps1"
 # # . $InvokeSSDTBoD -InstanceUnderUse $svrConnstring -Build -Deploy
  $InvokeSSISBoD = Join-Path $PSScriptRoot "\SSISBoD\InvokeSSISBoD.ps1"
- . $InvokeSSISBoD -InstanceUnderUse $svrConnstring -IncludePreRelease #-Deploy
+ . $InvokeSSISBoD -InstanceUnderUse $svrConnstring -IncludePreRelease -Deploy
 # #Deploy SQL Agent Job
 # #$env:USERDOMAIN
 # #$env:computername
