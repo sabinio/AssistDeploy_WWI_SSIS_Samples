@@ -38,5 +38,6 @@ function Install-Smo {
         
         Throw "It appears that the nuget install hasn't worked, check output above to see whats going on"
     }
-    return $smoFolder
+    Write-Host "Returning $smoFolder"
+    $smoFolder
 }
