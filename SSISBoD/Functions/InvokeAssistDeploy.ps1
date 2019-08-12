@@ -4,6 +4,7 @@ Function Invoke-AssistDeploy {
         $ispac_file,
         $connection_string
     )
+    Write-Host "the connection string $connection_string"
     $myJsonPublishProfile = Import-Json -jsonPath $json_file -ispacPath $ispac_file -localVariables
     $ssisdb = Connect-SsisdbSql -sqlConnectionString $connection_string
     Test-Currentpermissions -sqlConnection $ssisdb
