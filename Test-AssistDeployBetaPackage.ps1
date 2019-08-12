@@ -8,7 +8,7 @@ Function Test-AssistDeployBetaPackage{
     $global:SQLAgentServerName = "$env:computername"
     $global:IntegrationServicesCatalogServer = "$env:computername"
 
-# $svrConnstring = "SERVER=.;Integrated Security=True;Database=master"
+$svrConnstring = "SERVER=.;Integrated Security=True;Database=master"
 # # $InvokeSSDTBoD = Join-Path $PSScriptRoot "\SSDTBoD\InvokeSSDTBoD.ps1"
 # # . $InvokeSSDTBoD -InstanceUnderUse $svrConnstring -Build -Deploy
  $InvokeSSISBoD = Join-Path $PSScriptRoot "\SSISBoD\InvokeSSISBoD.ps1"
