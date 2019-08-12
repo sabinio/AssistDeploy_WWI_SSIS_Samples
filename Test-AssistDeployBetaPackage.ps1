@@ -1,6 +1,12 @@
+param(
+    $buildPassword,
+    $svrConnstring
+)
+
 Function Test-AssistDeployBetaPackage{
     param(
-        [String]$pword
+        [String]$pword,
+        [string]$svrConnstring
     )
     
     $global:RunAsAccount = "$Env:computername\$env:UserName"
@@ -8,7 +14,8 @@ Function Test-AssistDeployBetaPackage{
     $global:SQLAgentServerName = "$env:computername"
     $global:IntegrationServicesCatalogServer = "$env:computername"
 
-$svrConnstring = "SERVER=.;Integrated Security=True;Database=master"
+# $svrConnstring = "SERVER=.;Integrated Security=True;Database=master;"
+
 # # $InvokeSSDTBoD = Join-Path $PSScriptRoot "\SSDTBoD\InvokeSSDTBoD.ps1"
 # # . $InvokeSSDTBoD -InstanceUnderUse $svrConnstring -Build -Deploy
  $InvokeSSISBoD = Join-Path $PSScriptRoot "\SSISBoD\InvokeSSISBoD.ps1"
@@ -21,4 +28,4 @@ $svrConnstring = "SERVER=.;Integrated Security=True;Database=master"
 }
 Write-Host "Sleeping for 1 minute so that package can be indexed on NuGet."
 #Start-Sleep -Seconds 60
-Test-AssistDeployBetaPackage -pword $env:BuildPassword
+Test-AssistDeployBetaPackage -pword $BuildPassword -svrConnstring $svrConnstring
